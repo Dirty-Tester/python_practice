@@ -1,0 +1,2 @@
+# python_practice
+pythonの練習に使うようのリポリジトリ
