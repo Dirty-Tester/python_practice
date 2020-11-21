@@ -1,2 +1,2 @@
 # python_practice
-pythonの練習に使うようのリポリジトリ
+pythonの練習に用のリポリジトリ
