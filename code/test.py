@@ -22,24 +22,18 @@ class Test_calculate_defference(object):
         assert product.calculate_defference(-5,7) == 12
 
  ## 最終行処理
+class Test_lastline_contain_equal(object):
+    def test_特定の文字列の場合_Trueを返す(self):
+        assert product.lastline_contain_equal("===") == True 
  
-def test_特定の文字列の場合_Trueを返す():
-    assert product.lastline_is_equal("===") == True 
+    def test_特定の文字列ではない場合_Falseを返す(self):
+        assert product.lastline_contain_equal(20202.34) == False
  
-def test_特定の文字列以外の場合_Falseを返す():
-    assert product.lastline_is_equal("") == False
- 
- 
+
 """
  一列目の最終行の内容を返す
  
- 文字列(===)を示していたら←〇
- 
  捨てる←"==="を抜いたデータ返す
- 
- 文字列(===)がなかったら←〇
- "Log file error"を返す
- 
  
  dataframeを入れる前に
  control_dataとactual_resultのヘッダと最終行処理をする
