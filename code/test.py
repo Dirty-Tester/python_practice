@@ -48,7 +48,7 @@ class Test_calculate_defference(object):
         assert product.calculate_defference(-5,7) == 12
 
  ## 最終行処理
-class Test_最終行の処理(object):
+class Test_datの処理(object):
     def test_特定の文字列の場合_Trueを返す(self,actual_data):
         assert product.lastline_contain_equal(actual_data) == True 
  
@@ -59,6 +59,16 @@ class Test_最終行の処理(object):
         deleted_data = product.delete_lastline(actual_data) # 削除したデータを入れる
         assert len(actual_data) - len(deleted_data) == 1 ### アクチュアルからデリートしたデータを引いて、一行消せてたら成功
     
+    def test_列の処理(self,actual_data):
+        last_line_deleted = product.delete_lastline(actual_data)
+        renamed = product.rename_columns(last_line_deleted)
+        assert renamed.columns[0] == 'elapsed_time'
+
+    def test_矢印を削除(self,actual_data):
+        l_l_d = product.delete_lastline(actual_data)
+        renamed = product.rename_columns(l_l_d)
+        deleted_arrow = product.delete_arrows(renamed)
+        assert deleted_arrow.iat[0,0] == "0.00310000"
 
 """
 
