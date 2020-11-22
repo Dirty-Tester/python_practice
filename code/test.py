@@ -7,6 +7,12 @@ import pytest
 import product
 
 @pytest.fixture
+def invalid_data():
+    with open("data/invalid_data.dat") as data:
+      read_data = pd.read_table(data)
+      return read_data
+
+@pytest.fixture
 def control_data():
     with open("data/control_data.dat") as data:
       read_data = pd.read_table(data)
@@ -42,20 +48,20 @@ class Test_calculate_defference(object):
         assert product.calculate_defference(-5,7) == 12
 
  ## 最終行処理
-class Test_lastline_contain_equal(object):
-    def test_特定の文字列の場合_Trueを返す(self):
-        assert product.lastline_contain_equal("===") == True 
+class Test_最終行の処理(object):
+    def test_特定の文字列の場合_Trueを返す(self,actual_data):
+        assert product.lastline_contain_equal(actual_data) == True 
  
-    def test_特定の文字列ではない場合_Falseを返す(self):
-        assert product.lastline_contain_equal(20202.34) == False
+    def test_特定の文字列ではない場合_Falseを返す(self,invalid_data):
+        assert product.lastline_contain_equal(invalid_data) == False
  
+    def test_最終行を削除する(self,actual_data):
+        deleted_data = product.delete_lastline(actual_data) # 削除したデータを入れる
+        assert len(actual_data) - len(deleted_data) == 1 ### アクチュアルからデリートしたデータを引いて、一行消せてたら成功
+    
 
 """
- 一列目の最終行の内容を返す
- 
- 捨てる←"==="を抜いたデータ返す
- 
- dataframeを入れる前に
+
  control_dataとactual_resultのヘッダと最終行処理をする
  一行目と一列目はヘッダ
  
