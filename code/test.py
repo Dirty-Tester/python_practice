@@ -1,9 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import pandas as pd
 import pytest
 
 import product
+
+@pytest.fixture
+def control_data():
+    with open("data/control_data.dat") as data:
+      read_data = pd.read_table(data)
+      return read_data
+
+@pytest.fixture
+def actual_data():
+    with open("data/actual_data.dat") as data:
+      read_data = pd.read_table(data)
+      return read_data
+
+class Test_テストで呼び出したデータがdetaframeで入っていること(object):
+    def test_Actualがデータフレームかどうか確かめる(self,actual_data):
+        assert type(actual_data) == pd.core.frame.DataFrame
+
+    def test_Controlがデータフレームかどうか確かめる(self,control_data):
+        assert type(control_data) == pd.core.frame.DataFrame
 
 
 ##　期待値と結果の差を計算する。
