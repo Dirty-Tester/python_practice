@@ -1,17 +1,18 @@
 @startuml sequence
 
-Datファイル -> target_data
+Datファイル -> store_data
 
-target_data -right-> pandas_converter
-target_data -down-> 処理対象を選ぶ
-target_data -up-> 計算する
+store_data -right-> pandas_converter
+store_data -down-> 処理対象を選ぶ
+store_data -up-> 計算する
 
 class Datファイル
 
-class target_data{
+class store_data{
     actual : dataframe
     control : dataframe
-    read_pandas_data()
+    第一引数の値以下から.datを探す()
+    datをpandasにする()
 }
 
 class pandas_converter{
