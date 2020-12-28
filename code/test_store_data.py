@@ -12,8 +12,5 @@ class Test_store_data(object):
         assert type(st.open_dat_file("data/actual_data.dat")) == pd.core.frame.DataFrame
 
     def test_ファイルパスを渡すとwalkすること(self):
-        assert st.get_filepath("data") == ('data',[], ['control_data.dat', 'invalid_data.dat', 'actual_data.dat', 'LAG_C.dat'])
+        assert st.get_filepath("./") == ['./data/control_data.dat', './data/invalid_data.dat', './data/actual_data.dat', './data/calculate_data.dat', './data/LAG_C.dat', './data2/control_data.dat', './data2/invalid_data.dat', './data2/actual_data.dat', './data2/LAG_C.dat']
     
-    def test_walkしたファイルの中のdatファイルを探す(self):
-        assert st.explore_datfile("data") == ['control_data.dat', 'invalid_data.dat', 'actual_data.dat', 'LAG_C.dat']
-        
