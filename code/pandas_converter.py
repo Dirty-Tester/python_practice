@@ -3,6 +3,17 @@
 
 import pandas as pd
 
+#メイン用
+def main_converter(inputdata,datatype):
+    if lastline_contain_equal(inputdata) == True:
+        inputdata = delete_lastline(inputdata)
+        inputdata = rename_columns(inputdata)
+        inputdata = delete_arrows(inputdata)
+        inputdata = manage_line(inputdata,datatype)
+        return inputdata
+    elif lastline_contain_equal(inputdata) == False:
+        return False
+
 def lastline_contain_equal(input_data):
     last_line = input_data.iat[-1, 0]#0列目の最終行を取得
     if last_line == "===":
@@ -32,11 +43,5 @@ def manage_line(data,datatype):
 if __name__ == "__main__":
  # データの確認用(やむおえず)
     with open("data/actual_data.dat") as data:
-      read_data = delete_lastline(pd.read_table(data))
-      tes = manage_line(read_data,"control")
-      print(tes)
-      rd = read_data.rename(columns={"Unnamed: 0":"elapsed_time"})
-      deleted_arrow = delete_arrows(rd)
-      print(deleted_arrow)
-      dt = manage_line(deleted_arrow,"control")
-      print(dt)
+      read_data = pd.read_table(data)
+      print(main_converter(read_data,"actual"))
