@@ -11,12 +11,11 @@ def calculate_difference(num_control,num_actual):
   return num_of_difference
 
 def calculate_average(df):
-  average_result=[]
 
-  for _col,val in df.iteritems():
-    average_result.append(val.mean())
+  df_average = df.mean(axis=0)
+  df_average = pd.concat([df,pd.DataFrame(df.mean(axis=0),columns=['average']).T])
 
-  return average_result
+  return df_average 
 
 if __name__ == "__main__":
   files = store_data.open_dat_file("./data/actual_data.dat")
