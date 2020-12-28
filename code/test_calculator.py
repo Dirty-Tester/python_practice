@@ -7,6 +7,7 @@ import pytest
 import calculator
 
 # テストデータの準備
+@pytest.fixture
 def test_data():
     with open('data/calculate_data.dat') as data:
       read_data = pd.read_table(data)
@@ -36,8 +37,8 @@ class Test_期待値と結果の差を計算する(object):
     def test_負の数と正の数の結果がマイナスだったとき差が計算できること(self):
         assert calculator.calculate_difference(-5,7) == 12
 
-    # def test_格納されているデータの平均値が出せること(self,test_data):
-        # assert calculator.calculate_average(test_data) == 5.5
+    def test_格納されているデータの平均値が出せること_列a1(self,test_data):
+        assert calculator.calculate_average(test_data) == [64.3,65.44,48.74]
 
 # 他のモジュールとの兼ね合いがあるから一旦後回し(テストデータを入れたら一応できるかも)
     ## calculate_resultとactual_resultの行数が同じであること
