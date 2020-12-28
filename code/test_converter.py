@@ -32,6 +32,14 @@ class Test_テストで呼び出したデータがデータフレームで入っ
     def test_Controlがデータフレームかどうか確かめる(self,control_data):
         assert type(control_data) == pd.core.frame.DataFrame
 
+class Test_dataframeの処理(object):
+    def test_Actualの場合は2行削除して一行目に特定の値(self,actual_data):
+        del_actual_data = pandas_converter.manage_line(actual_data,"actual")
+        assert del_actual_data.iat[0,0] == "0.01300000-->"
+    
+    def test_Controlの場合は2行削除(self,control_data):
+        del_control_data = pandas_converter.manage_line(control_data,"control")
+        assert len(control_data) - len(del_control_data) == 2
 
  ## 最終行処理
 class Test_datの処理(object):
