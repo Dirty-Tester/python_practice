@@ -11,7 +11,8 @@ class Datファイル
 class store_data{
     actual : dataframe
     control : dataframe
-    第一引数の値以下から.datを探す()
+    ファイルパスから再帰的に()
+    - 第一引数の値以下から.datを探す()
     datをpandasにする()
 }
 
