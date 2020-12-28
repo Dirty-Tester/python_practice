@@ -6,6 +6,7 @@ import pytest
 
 import product
 
+# テスト用データの準備
 @pytest.fixture
 def invalid_data():
     with open("data/invalid_data.dat") as data:
@@ -24,7 +25,7 @@ def actual_data():
       read_data = pd.read_table(data)
       return read_data
 
-class Test_テストで呼び出したデータがdetaframeで入っていること(object):
+class Test_テストで呼び出したデータがデータフレームで入っていること(object):
     def test_Actualがデータフレームかどうか確かめる(self,actual_data):
         assert type(actual_data) == pd.core.frame.DataFrame
 
@@ -32,20 +33,20 @@ class Test_テストで呼び出したデータがdetaframeで入っているこ
         assert type(control_data) == pd.core.frame.DataFrame
 
 
-##　期待値と結果の差を計算する。
-class Test_calculate_defference(object):
+## 期待値と結果の差を計算する。
+class Test_期待値と結果の差を計算する(object):
 
     def test_正の数同士の差が計算できること_1(self):
-        assert product.calculate_defference(5,3) == 2
+        assert product.calculate_difference(5,3) == 2
 
     def test_正の数同士の差が計算できること_2(self):
-        assert product.calculate_defference(5,5) == 0
+        assert product.calculate_difference(5,5) == 0
 
     def test_正の数同士の差の結果がマイナスだったとき差が計算できること(self):
-        assert product.calculate_defference(5,7) == 2
+        assert product.calculate_difference(5,7) == 2
 
     def test_負の数と正の数の結果がマイナスだったとき差が計算できること(self):
-        assert product.calculate_defference(-5,7) == 12
+        assert product.calculate_difference(-5,7) == 12
 
  ## 最終行処理
 class Test_datの処理(object):
