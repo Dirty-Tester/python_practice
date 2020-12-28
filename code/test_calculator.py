@@ -6,6 +6,16 @@ import pytest
 
 import calculator
 
+# テストデータの準備
+def test_data():
+    with open('data/calculate_data.dat') as data:
+      read_data = pd.read_table(data)
+      return (read_data)
+
+class Test_テストで呼び出したデータがデータフレームで入っていること(object):
+    def test_dataがデータフレームかどうか確かめる(self,test_data):
+        assert type(test_data) == pd.core.frame.DataFrame
+
 # 計算する系
 ## actualの1,2行目にデータがあったら起こる機能
     ## input = control_dataで処理対象となった値
@@ -26,8 +36,8 @@ class Test_期待値と結果の差を計算する(object):
     def test_負の数と正の数の結果がマイナスだったとき差が計算できること(self):
         assert calculator.calculate_difference(-5,7) == 12
 
-    def test_格納されているデータの平均値が出せること(self):
-        assert calculator.calculate_average([1,2,3,4,5,6,7,8,9,10]) == 5.5
+    # def test_格納されているデータの平均値が出せること(self,test_data):
+        # assert calculator.calculate_average(test_data) == 5.5
 
 # 他のモジュールとの兼ね合いがあるから一旦後回し(テストデータを入れたら一応できるかも)
     ## calculate_resultとactual_resultの行数が同じであること
@@ -39,6 +49,7 @@ class Test_期待値と結果の差を計算する(object):
 #　最終計算
 ## calcilate_resultの列ごとの平均値を算出し、列ごとの変数に代入する-①
     ## 平均値が出せる
+
 class test_平均値の計算(object):
     def test_格納されているデータの平均値が出せること(self):
         assert calculator.calculate_average([1,2,3,4,5,6,7,8,9,10]) == 5.5
