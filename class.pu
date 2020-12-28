@@ -1,30 +1,32 @@
 @startuml sequence
 
-Datファイル -> target_data
+Datファイル -> store_data
 
-target_data -right-> pandas_converter
-target_data -down-> 処理対象を選ぶ
-target_data -up-> 計算する
+store_data -right-> pandas_converter
+store_data -down-> 処理対象を選ぶ
+store_data -up-> 計算する
 
 class Datファイル
 
-class target_data{
+class store_data{
     actual : dataframe
     control : dataframe
-    read_pandas_data()
+    ファイルパスから再帰的に()
+    - 第一引数の値以下から.datを探す()
+    datをpandasにする()
 }
 
 class pandas_converter{
     delete_lastline()
     delete_arrows()
     rename_columns()
-    最終行を切り取る()
-    最初の行を切り取る()
+    manage_line(data_type)
 }
 
 class 処理対象を選ぶ{
     処理する列
     処理しない列
+    データの種類
     0以外が含まれる列を検索する()
 }
 
