@@ -1,0 +1,42 @@
+@startuml sequence
+
+Datファイル -> target_data
+
+target_data -right-> pandas_converter
+target_data -down-> 処理対象を選ぶ
+target_data -up-> 計算する
+
+class Datファイル
+
+class target_data{
+    actual : dataframe
+    controle : dataframe
+    read_pandas_data()
+}
+
+class pandas_converter{
+    delete_lastline()
+    delete_arrows()
+    rename_columns()
+    最終行を切り取る()
+    最初の行を切り取る()
+}
+
+class 処理対象を選ぶ{
+    処理する列
+    処理しない列
+    0以外が含まれる列を検索する()
+}
+
+class 計算する{
+    2つの値の差の絶対値を返す()
+    - 列ごとの平均値を計算する()
+    - 最大値を取得する（）
+    - 誤差率を計算する（）
+}
+
+class テキストファイル出力{
+
+}
+
+@enduml

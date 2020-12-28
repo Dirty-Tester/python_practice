@@ -7,7 +7,6 @@ def calculate_difference(num_control,num_actual):
   num_of_difference = abs(num_control-num_actual)
   return num_of_difference
 
-
 def lastline_contain_equal(input_data):
     last_line = input_data.iat[-1, 0]#0列目の最終行を取得
     if last_line == "===":
