@@ -36,7 +36,6 @@ class 計算する{
 }
 
 class テキストファイル出力{
-
 }
 
 @enduml
