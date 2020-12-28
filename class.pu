@@ -10,7 +10,7 @@ class Datファイル
 
 class target_data{
     actual : dataframe
-    controle : dataframe
+    control : dataframe
     read_pandas_data()
 }
 
