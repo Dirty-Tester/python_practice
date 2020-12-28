@@ -33,21 +33,6 @@ class Test_テストで呼び出したデータがデータフレームで入っ
         assert type(control_data) == pd.core.frame.DataFrame
 
 
-## 期待値と結果の差を計算する。
-class Test_期待値と結果の差を計算する(object):
-
-    def test_正の数同士の差が計算できること_1(self):
-        assert product.calculate_difference(5,3) == 2
-
-    def test_正の数同士の差が計算できること_2(self):
-        assert product.calculate_difference(5,5) == 0
-
-    def test_正の数同士の差の結果がマイナスだったとき差が計算できること(self):
-        assert product.calculate_difference(5,7) == 2
-
-    def test_負の数と正の数の結果がマイナスだったとき差が計算できること(self):
-        assert product.calculate_difference(-5,7) == 12
-
  ## 最終行処理
 class Test_datの処理(object):
     def test_特定の文字列の場合_Trueを返す(self,actual_data):
