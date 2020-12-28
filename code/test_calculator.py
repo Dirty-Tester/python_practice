@@ -48,7 +48,7 @@ class Test_期待値と結果の差を計算する(object):
 
 
 #　最終計算
-## calcilate_resultの列ごとの平均値を算出し、列ごとの変数に代入する-①
+## calculate_resultの列ごとの平均値を算出し、列ごとの変数に代入する-①
     ## 平均値が出せる
 
 class test_平均値の計算(object):
@@ -59,7 +59,7 @@ class test_平均値の計算(object):
         ## 格納されている配列(変数)に平均値が出せること
         ## dataframeの型でやるやつはそのあとでやる
 
-        ## <columm>_aerage3つできるはず
+        ## <column>_average3つできるはず
 
 ## control_dataの処理対象となった列の最大値を取得し、変数に代入する-②
     ## 列の最大値を取得できること
@@ -73,9 +73,9 @@ class test_平均値の計算(object):
     ## 変数に代入できること
 
 ## ①と②と③をテキストファイルに出力する
-    ## columm_average,1,2,3
+    ## column_average,1,2,3
     ## max_data,1,2,3,
     ## error_rate,③
-    ## uncaliculated_columm=XXX
+    ## not_caliculated_column=XXX
 
 ## 処理しやすい形で出す
