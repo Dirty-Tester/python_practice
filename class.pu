@@ -18,13 +18,13 @@ class pandas_converter{
     delete_lastline()
     delete_arrows()
     rename_columns()
-    最終行を切り取る()
-    最初の行を切り取る()
+    manage_line(data_type)
 }
 
 class 処理対象を選ぶ{
     処理する列
     処理しない列
+    データの種類
     0以外が含まれる列を検索する()
 }
 
