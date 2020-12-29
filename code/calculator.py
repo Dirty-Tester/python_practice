@@ -7,7 +7,10 @@ import store_data
 import pandas as pd
 
 def create_table():
-  calculate_result = pd.dataframe(columns['a1','a2','a3'])
+  data = []
+  columns = ['a1','a2','a3']
+  index = ['average','max','error_rate']
+  calculate_result = pd.dataframe(data = data,columns = columns,index = index)
   return calculate_result
 
 
@@ -25,4 +28,3 @@ if __name__ == "__main__":
   files = store_data.open_dat_file("./data/actual_data.dat")
   target = pc.main_converter(files,"actual")
   print(calculate_average(target))
-  
