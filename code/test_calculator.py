@@ -37,6 +37,10 @@ class Test_期待値と結果の差を計算する(object):
     def test_負の数と正の数の結果がマイナスだったとき差が計算できること(self):
         assert calculator.calculate_difference(-5,7) == 12
 
+    def test_計算結果格納用のdataframeがある(self):
+        test = calculator.create_table()
+        assert type(test) == pd.core.frame.DataFrame
+
 # 他のモジュールとの兼ね合いがあるから一旦後回し(テストデータを入れたら一応できるかも)
     ## calculate_resultとactual_resultの行数が同じであること
     ## 計算結果をpandasのdataframeに格納する
@@ -48,17 +52,17 @@ class Test_期待値と結果の差を計算する(object):
 ## calculate_resultの列ごとの平均値を算出し、列ごとの変数に代入する-①
     ## 平均値が出せる
 
-class test_平均値の計算(object):
-    def test_格納されたdataframeに平均値行が追加されている(self,test_data):
+class test_計算(object):
+    def test_計算結果格納用のdataframeがある(self):
+        test = calculator.create_table()
+        assert type(test) == pd.core.frame.DataFrame
+
+    # def test_計算結果格納用のdataframeに値が入っていることの確認
         # 下は変えてないけど、データに'average'という行があったら、1を返すようにする
         # assert calculator.calculate_average(test_data) == [64.3,65.44,48.74]
 
-    # def test_追加されている平均値行に値が入っている(self,test_data):
-        # assert calculator.calculate_average(test_data)で、追加された平均値行のデータがNULLがないことを確認したい
-
     # def test_追加されている平均値行に格納されている値が正しい(self,test_data):
         # assert calculator.calculate_average(test_data)の平均値行のデータがあっていることの確認
-
 
         ## <column>_average3つできるはず
 
